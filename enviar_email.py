@@ -5,11 +5,11 @@ import imghdr
 
 # Definir las credenciales y destinatario.
 email_emisor = "linaresvelascomichael@gmail.com"
-email_password = "ghbkxzoobaxlojhn" # Contraseña generada despues de la verifcación en dos pasos...
+email_password = "ghbkxzoobaxlojhn" # Contraseña generada despues de la verificación en dos pasos...
 email_receptor = "linaresvelascomichael@gmail.com"
 
 # Definir el asunto y el cuerpo del correo.
-asunto = 'Mail enviado desde Udemy...'
+asunto = 'Mail enviado desde Python...'
 cuerpo = """Te envío un correo desde mi script de Python..."""
 
 # Definir cuántas veces deseas enviar el correo.
@@ -25,10 +25,10 @@ for _ in range(numero_envios):
     em.set_content(cuerpo)
 
     # Adjuntar un archivo de imagen al correo.
-    with open('paisaje.jpg', 'rb') as imagen:
-        file_data = imagen.read()
-        file_tipo = imghdr.what(imagen.name)
-        file_nombre = imagen.name
+    with open('paisaje.jpg', 'rb') as file:
+        file_data = file.read()
+        file_tipo = imghdr.what(file.name)
+        file_nombre = file.name
     em.add_attachment(file_data, filename=file_nombre, subtype=file_tipo, maintype='image')
 
     # Configurar el contexto SSL seguro para la conexión SMTP.
